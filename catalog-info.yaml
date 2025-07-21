@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-sacoiofv-gitops
+  description: This is GitOps manifest for go-sacoiofv   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-sacoiofv
+    backstage.io/kubernetes-id: go-sacoiofv 
+    backstage.io/techdocs-ref: dir:. 
+    jenkins.io/job-full-name: go-sacoiofv-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-sacoiofv
